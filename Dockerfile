@@ -1,3 +1,3 @@
 FROM centurylink/ca-certs
-COPY kube2consul /kube2consul
-CMD /kube2consul
+ADD kube2consul kube2consul
+ENTRYPOINT ["/kube2consul"]
