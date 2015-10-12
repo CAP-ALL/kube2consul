@@ -1,9 +1,15 @@
 machine:
   services:
     - docker
+
+test:
+  post:
+    - docker build -t concur/kube2consul:$(cat version) .
+
 deployment:
   hub:
     branch: master
     commands:
+      - docker tag -f concur/kube2consul:$(cat version) concur/kube2consul:latest
       - docker login -e "$DOCKER_EMAIL" -u "$DOCKER_USER" -p "$DOCKER_PASS"
-      - docker push concur/kube2consul:$(cat version)
+      - docker push concur/kube2consul:latest
