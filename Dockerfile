@@ -1,3 +1,3 @@
-FROM centurylink/ca-certs
-ADD kube2consul /kube2consul
-ENTRYPOINT ["/kube2consul"]
+FROM progrium/busybox
+ADD kube2consul /
+CMD ["/kube2consul"]
