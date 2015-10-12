@@ -18,7 +18,7 @@ limitations under the License.
 // Kubernetes master for changes in Services and creates new DNS records on the
 // consul agent.
 
-package main // import "github.com/jmccarty3/kube2consul"
+package main // import "github.com/CAP-ALL/kube2consul"
 
 import (
 	"flag"
