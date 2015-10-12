@@ -9,6 +9,7 @@ test:
 dependencies:
   override:
     - go get github.com/tools/godep
+    - godep restore
     - make
 
 deployment:
