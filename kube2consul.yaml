@@ -1,0 +1,25 @@
+kind: "ReplicationController"
+apiVersion: "v1"
+metadata:
+  name: "kube2consul"
+spec:
+  replicas: 1
+  selector:
+    name: "kube2consul"
+  template:
+    spec:
+      containers:
+        - name: "kube2consul"
+          image: "concur/kube2consul:latest"
+          command:
+            - /kube2consul
+            - -consul-agent
+            - http://consul.service.consul:8500
+            - -kube_master_url
+            - http://$KUBERNETES_SERVICE_HOST:8080
+    metadata:
+      labels:
+        name: "kube2consul"
+      selectorname: "kube2consul"
+  labels:
+    name: "kube2consul"
